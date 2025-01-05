@@ -1,16 +1,27 @@
 {
   "name": "mileston-payments",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "main": "index.js",
   "scripts": {
     "start": "npx ts-node src/index.ts",
     "start:dev": "npx tsc --watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
+  "keywords": [
+    "Mileston",
+    "Payment SDK",
+    "Recurring Payments",
+    "Invoices",
+    "Payment Links",
+    "Payment Gateway",
+    "Subscription Management",
+    "Secure Payments",
+    "E-commerce Payments",
+    "Billing System"
+  ],
+  "author": "Mileston",
+  "license": "MIT",
+  "description": "Open source Mileston Payment SDK to seamlessly integrate and build crypto (USDC) payment links, invoices and recurring payments into your apps!",
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^8.19.0",
     "@typescript-eslint/parser": "^8.19.0",
