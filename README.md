@@ -120,7 +120,3 @@ We welcome contributions! Feel free to fork this repository and submit pull requ
 ## License
 
 This project is licensed under the MIT License. See the `LICENSE` file for details.
-
----
-
-This `README.md` provides a solid introduction to your SDK, explains how to install and use it, and offers clear examples to get developers started quickly. If you have more advanced features or usage scenarios, consider expanding the documentation further.
