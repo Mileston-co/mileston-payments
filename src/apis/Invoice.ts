@@ -18,7 +18,7 @@ export class Invoice extends BaseAPI {
      */
     constructor(apiKey: string, businessId: string) {
         // Pass the default baseURL, apiKey, and businessId to the BaseAPI constructor
-        super(Invoice.defaultBaseURL, apiKey, businessId);
+        super(apiKey, businessId, Invoice.defaultBaseURL)
     }
 
     /**

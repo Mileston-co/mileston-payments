@@ -69,7 +69,7 @@ export interface CreatePaymentLinkResponse {
     /**
      * @property {CreatePaymentLinkPayload} paymentData - The payment data used to create the payment link.
      */
-    paymentData: CreatePaymentLinkPayload;
+    paymentData: UpdatePaymentLinkPayload;
 }
 
 /**

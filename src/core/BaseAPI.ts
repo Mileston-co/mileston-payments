@@ -89,6 +89,8 @@ export class BaseAPI {
    */
   protected async request<T>({ endpoint, method, data }: RequestConfig): Promise<T> {
     try {
+      const url = this.client.defaults.baseURL + endpoint;
+
       const response = await this.client.request<T>({
         url: endpoint,
         method,
@@ -96,7 +98,8 @@ export class BaseAPI {
       });
       return response.data;
     } catch (error: any) {
-      throw new Error(error.response?.data?.message || error.message);
+      console.error(error)
+      throw new Error(error.response?.data?.message || error);
     }
   }
 }

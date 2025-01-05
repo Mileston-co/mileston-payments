@@ -124,7 +124,7 @@ export interface CreateRecurringPaymentResponse {
      * @property {CreateRecurringPaymentPayload} recurringPaymentData
      * @description The data of the newly created recurring payment.
      */
-    recurringPaymentData: CreateRecurringPaymentPayload;
+    recurringPaymentData: UpdateRecurringPaymentPayload;
 }
 
 

@@ -96,7 +96,7 @@ export interface CreateInvoiceResponse {
      * @property {CreateInvoicePayload} invoiceData
      * @description The details of the created invoice.
      */
-    invoiceData: CreateInvoicePayload;
+    invoiceData: UpdateInvoicePayload;
 }
 
 /**

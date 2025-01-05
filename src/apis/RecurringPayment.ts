@@ -18,7 +18,7 @@ export class RecurringPayment extends BaseAPI {
      */
     constructor(apiKey: string, businessId: string) {
         // Pass the default baseURL, apiKey, and businessId to the BaseAPI constructor
-        super(RecurringPayment.defaultBaseURL, apiKey, businessId);
+        super(apiKey, businessId, RecurringPayment.defaultBaseURL);
     }
 
     /**

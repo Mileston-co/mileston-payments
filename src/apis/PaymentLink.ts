@@ -18,7 +18,7 @@ export class PaymentLink extends BaseAPI {
    */
   constructor(apiKey: string, businessId: string) {
     // Pass the default baseURL, apiKey, and businessId to the BaseAPI constructor
-    super(PaymentLink.defaultBaseURL, apiKey, businessId);
+    super(apiKey, businessId, PaymentLink.defaultBaseURL);
   }
 
   /**
