@@ -1,6 +1,7 @@
 # Mileston Payments SDK
 
 The Mileston Payments SDK is a simple and powerful library for managing payments, invoices, and recurring subscriptions. It provides seamless integration with your application, enabling you to create, update, and manage payment workflows effortlessly.
+Contact [tomiwaphilip@mileston.co](mailto:tomiwaphilip@mileston.co) if you have any issues integrating this.
 
 ## Want to integrate crypto payment gateway into your application? Head on to https://mileston.co 
 
