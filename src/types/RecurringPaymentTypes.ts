@@ -12,6 +12,12 @@ export interface CreateRecurringPaymentPayload {
     amount: string;
 
     /**
+     * @property {string} subscriptionName
+     * @description The name of the subscription for the recurring payment. e.g. Premium Plan.
+     */
+    subscriptionName: string;
+
+    /**
      * @property {string} subscriberFullName
      * @description The full name of the subscriber for the recurring payment.
      */
@@ -65,6 +71,12 @@ export interface UpdateRecurringPaymentPayload {
      * @description The updated amount to be charged in the recurring payment. Optional.
      */
     amount?: string;
+
+    /**
+     * @property {string} subscriptionName
+     * @description The name of the subscription for the recurring payment. e.g. Premium Plan.
+     */
+    subscriptionName?: string;
 
     /**
      * @property {string} [subscriberFullName]

@@ -1,5 +1,11 @@
 import { BaseAPI } from "../core";
-import { CreatePaymentLinkPayload, CreatePaymentLinkResponse, DeletePaymentLinkResponse, UpdatePaymentLinkPayload, UpdatePaymentLinkResponse } from "../types";
+import { 
+  CreatePaymentLinkPayload, 
+  CreatePaymentLinkResponse, 
+  DeletePaymentLinkResponse, 
+  UpdatePaymentLinkPayload, 
+  UpdatePaymentLinkResponse 
+} from "../types";
 
 /**
  * Class representing the Payment Link API.

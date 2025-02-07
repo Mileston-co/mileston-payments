@@ -1,5 +1,11 @@
 import { BaseAPI } from "../core";
-import { CreateRecurringPaymentPayload, CreateRecurringPaymentResponse, DeleteRecurringPaymentResponse, UpdateRecurringPaymentPayload, UpdateRecurringPaymentResponse } from "../types";
+import { 
+    CreateRecurringPaymentPayload, 
+    CreateRecurringPaymentResponse, 
+    DeleteRecurringPaymentResponse, 
+    UpdateRecurringPaymentPayload, 
+    UpdateRecurringPaymentResponse 
+} from "../types";
 
 /**
  * Class representing the Recurring Payment API.

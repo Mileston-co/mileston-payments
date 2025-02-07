@@ -1,5 +1,11 @@
 import { BaseAPI } from "../core";
-import { CreateInvoicePayload, CreateInvoiceResponse, DeleteInvoiceResponse, UpdateInvoicePayload, UpdateInvoiceResponse } from "../types";
+import { 
+    CreateInvoicePayload, 
+    CreateInvoiceResponse, 
+    DeleteInvoiceResponse, 
+    UpdateInvoicePayload, 
+    UpdateInvoiceResponse 
+} from "../types";
 
 /**
  * Class representing the Invoice API.
