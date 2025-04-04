@@ -30,10 +30,10 @@ export interface CreateInvoicePayload {
   dueDate: Date;
 
   /**
-   * @property {boolean} [pdf]
+   * @property {boolean} [addPdf]
    * @description Whether to generate a PDF for the invoice. Defaults to true.
    */
-  pdf?: boolean;
+  addPdf?: boolean; // Changed from pdf to addPdf
 }
 
 /**
@@ -72,6 +72,12 @@ export interface UpdateInvoicePayload {
    * @example new Date("2025-01-31")
    */
   dueDate?: Date;
+
+  /**
+   * @property {boolean} [addPdf]
+   * @description Whether to generate a PDF for the invoice. Optional.
+   */
+  addPdf?: boolean; // Added addPdf field
 }
 
 /**

@@ -54,10 +54,10 @@ export interface CreateRecurringPaymentPayload {
   recurringInterval: number;
 
   /**
-   * @property {boolean} [pdf]
+   * @property {boolean} [addPdf]
    * @description Whether to generate a PDF for the recurring payment. Defaults to true.
    */
-  pdf?: boolean;
+  addPdf?: boolean; // Changed from pdf to addPdf
 }
 
 /**
@@ -118,6 +118,12 @@ export interface UpdateRecurringPaymentPayload {
    * @description The updated interval (in days) for the recurring payment. Optional.
    */
   recurringInterval?: number;
+
+  /**
+   * @property {boolean} [addPdf]
+   * @description Whether to generate a PDF for the recurring payment. Optional.
+   */
+  addPdf?: boolean; // Added addPdf field
 }
 
 /**

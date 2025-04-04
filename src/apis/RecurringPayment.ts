@@ -38,10 +38,14 @@ export class RecurringPayment extends BaseAPI {
     businessName: string,
     payload: CreateRecurringPaymentPayload
   ): Promise<CreateRecurringPaymentResponse> {
+    const data = { ...payload };
+    if (payload.addPdf === undefined) {
+      data.addPdf = true;
+    }
     return this.request({
       endpoint: `/create?businessName=${businessName}`,
       method: "POST",
-      data: { pdf: payload.pdf ?? true, ...payload },
+      data,
     });
   }
 

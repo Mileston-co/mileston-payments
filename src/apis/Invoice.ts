@@ -37,10 +37,14 @@ export class Invoice extends BaseAPI {
     businessName: string,
     payload: CreateInvoicePayload
   ): Promise<CreateInvoiceResponse> {
+    const data = { ...payload };
+    if (payload.addPdf === undefined) {
+      data.addPdf = true;
+    }
     return this.request({
       endpoint: `/create?businessName=${businessName}`,
       method: "POST",
-      data: { pdf: payload.pdf ?? true, ...payload },
+      data,
     });
   }
 
