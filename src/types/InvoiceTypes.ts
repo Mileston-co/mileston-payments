@@ -31,9 +31,9 @@ export interface CreateInvoicePayload {
 
   /**
    * @property {boolean} [addPdf]
-   * @description Whether to generate a PDF for the invoice. Defaults to true.
+   * @description Whether to generate a PDF for the invoice. Optional.
    */
-  addPdf?: boolean; // Changed from pdf to addPdf
+  addPdf?: boolean;
 }
 
 /**
