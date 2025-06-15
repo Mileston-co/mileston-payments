@@ -1,5 +1,6 @@
-import axios, { AxiosInstance } from "axios";
+import axios, { AxiosInstance, AxiosRequestConfig } from "axios";
 import { RequestConfig } from "../types";
+import crypto from "crypto";
 
 /**
  * @class BaseAPI
@@ -40,6 +41,13 @@ export class BaseAPI {
   private businessId: string;
 
   /**
+   * @property {string} secretKey
+   * @private
+   * @description The secret key used for generating HMAC signatures.
+   */
+  private secretKey?: string;
+
+  /**
    * @property {AxiosInstance} client
    * @private
    * @description An instance of Axios pre-configured with authentication headers and base URL.
@@ -51,11 +59,13 @@ export class BaseAPI {
    * @param {string} apiKey - The API key for authenticating requests.
    * @param {string} businessId - The business ID to associate with requests.
    * @param {string} baseURL - The base URL for the API endpoints.
+   * @param {string} secretKey - The secret key used for generating HMAC signatures.
    * @description Initializes a new instance of the `BaseAPI` class.
    */
-  constructor(apiKey: string, businessId: string, baseURL: string) {
+  constructor(apiKey: string, businessId: string, baseURL: string, secretKey?: string) {
     this.apiKey = apiKey;
     this.businessId = businessId;
+    this.secretKey = secretKey;
 
     this.client = axios.create({
       baseURL,
@@ -65,6 +75,15 @@ export class BaseAPI {
         "Content-Type": "application/json",
       },
     });
+  }
+
+  private generateSignature(data: any): string {
+    if (!this.secretKey || !data) return '';
+    const stringifiedData = JSON.stringify(data);
+    return crypto
+      .createHmac('sha256', this.secretKey)
+      .update(stringifiedData)
+      .digest('hex');
   }
 
   /**
@@ -89,16 +108,21 @@ export class BaseAPI {
    */
   protected async request<T>({ endpoint, method, data }: RequestConfig): Promise<T> {
     try {
-      const url = this.client.defaults.baseURL + endpoint;
-
-      const response = await this.client.request<T>({
+      const signature = this.generateSignature(data);
+      
+      const config: AxiosRequestConfig = {
         url: endpoint,
         method,
         data: { ...data },
-      });
+        headers: {
+          ...(signature && { 'x-request-signature': signature })
+        }
+      };
+      
+      const response = await this.client.request<T>(config);
       return response.data;
     } catch (error: any) {
-      console.error(error)
+      console.error(error);
       throw new Error(error.response?.data?.message || error);
     }
   }

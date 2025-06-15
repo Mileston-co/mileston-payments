@@ -1,7 +1,4 @@
-/**
- * Supported wallet types for payouts
- */
-export type WalletType = "sui" | "eth" | "avax" | "pol" | "base" | "arb";
+import { WalletType } from "./WalletTypes";
 
 /**
  * Request payload for sending a payout
