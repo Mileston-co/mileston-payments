@@ -6,7 +6,10 @@ import {
   CreateSubWalletResponseData,
   CreateNewSubWalletResponseData,
   GetSubWalletResponseData,
-  WalletResponse
+  WalletResponse,
+  BatchPaymentPayload,
+  BatchPaymentResponse,
+  TransactionStatusResponse
 } from "../types/WalletTypes";
 
 export class Wallet extends BaseAPI {
@@ -99,6 +102,31 @@ export class Wallet extends BaseAPI {
     return this.request({
       endpoint: `/sub-wallet/${subWalletUuid}`,
       method: "DELETE"
+    });
+  }
+
+  /**
+   * Send batch payments from the main wallet
+   * @param payload - The batch payment details
+   * @returns The batch payment response
+   */
+  async batchPayment(payload: BatchPaymentPayload): Promise<BatchPaymentResponse> {
+    return this.request({
+      endpoint: "/batch-payment",
+      method: "POST",
+      data: payload
+    });
+  }
+
+  /**
+   * Get transaction status by UUID
+   * @param transactionUuid - The UUID of the transaction to check
+   * @returns The transaction status response
+   */
+  async getTransactionStatus(transactionUuid: string): Promise<TransactionStatusResponse> {
+    return this.request({
+      endpoint: `/transaction-status/${transactionUuid}`,
+      method: "GET"
     });
   }
 } 

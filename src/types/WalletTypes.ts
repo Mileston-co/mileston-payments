@@ -134,4 +134,57 @@ export interface SendFundsResponse {
     statusCode: number;
     /** Message from the transaction */
     message: string;
+}
+
+/**
+ * Payload for sending batch payments from a wallet
+ */
+export interface BatchPaymentPayload {
+    /** Array of recipient addresses */
+    recipients: string[];
+    /** Array of amounts to send (must match recipients array length) */
+    amounts: string[];
+    /** Type of wallet to send from */
+    walletType: WalletApiType;
+}
+
+/**
+ * Response from a successful batch payment
+ */
+export interface BatchPaymentResponse {
+    /** Status code of the response */
+    statusCode: number;
+    /** Message from the transaction */
+    message: string;
+    /** Response data (empty for batch payments) */
+    data: {};
+}
+
+/**
+ * Response data for transaction status
+ */
+export interface TransactionStatusResponse {
+    /** Status code of the response */
+    statusCode: number;
+    /** Message from the transaction */
+    message: string;
+    /** Transaction status data */
+    data: {
+        /** Unique transaction identifier */
+        transactionUUID: string;
+        /** Current status of the transaction */
+        status: string;
+        /** Amount sent in the transaction */
+        amount: string;
+        /** Recipient address */
+        recipientAddress: string;
+        /** Type of wallet used */
+        walletType: string;
+        /** Transaction signature/hash (optional) */
+        signature?: string;
+        /** Transaction creation timestamp */
+        createdAt: Date;
+        /** Transaction last update timestamp */
+        updatedAt: Date;
+    };
 } 
