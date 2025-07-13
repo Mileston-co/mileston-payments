@@ -78,8 +78,19 @@ export class BaseAPI {
   }
 
   private generateSignature(data: any): string {
-    if (!this.secretKey || !data) return '';
-    const stringifiedData = JSON.stringify(data);
+    if (!this.secretKey) return '';
+    
+    // For requests with data, use the data payload
+    if (data) {
+      const stringifiedData = JSON.stringify(data);
+      return crypto
+        .createHmac('sha256', this.secretKey)
+        .update(stringifiedData)
+        .digest('hex');
+    }
+    
+    // For GET requests without data, use empty object to match server expectation
+    const stringifiedData = JSON.stringify({});
     return crypto
       .createHmac('sha256', this.secretKey)
       .update(stringifiedData)
