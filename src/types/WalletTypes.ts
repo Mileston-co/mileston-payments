@@ -187,4 +187,15 @@ export interface TransactionStatusResponse {
         /** Transaction last update timestamp */
         updatedAt: Date;
     };
+}
+
+export interface GetAllWalletsResponse {
+  statusCode: number;
+  message: string;
+  walletData: {
+    id: number;
+    blockchain: string;
+    address: string;
+    balance: number;
+  }[];
 } 

@@ -9,7 +9,8 @@ import {
   WalletResponse,
   BatchPaymentPayload,
   BatchPaymentResponse,
-  TransactionStatusResponse
+  TransactionStatusResponse,
+  GetAllWalletsResponse
 } from "../types/WalletTypes";
 
 export class Wallet extends BaseAPI {
@@ -83,7 +84,7 @@ export class Wallet extends BaseAPI {
    * Get all wallets for the user
    * @returns List of all wallets and their balances
    */
-  async getAllWallets(): Promise<WalletResponse<{ walletData: { id: number; blockchain: string; address: string; balance: number; }[] }>> {
+  async getAllWallets(): Promise<GetAllWalletsResponse> {
     return this.request({
       endpoint: "/all-wallets",
       method: "GET"
