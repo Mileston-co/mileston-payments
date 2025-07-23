@@ -80,6 +80,17 @@ export class Wallet extends BaseAPI {
   }
 
   /**
+   * Get all wallets for the user
+   * @returns List of all wallets and their balances
+   */
+  async getAllWallets(): Promise<WalletResponse<{ walletData: { id: number; blockchain: string; address: string; balance: number; }[] }>> {
+    return this.request({
+      endpoint: "/all-wallets",
+      method: "GET"
+    });
+  }
+
+  /**
    * Send funds from a specific sub wallet
    * @param subWalletUuid - The UUID of the sub wallet
    * @param payload - The payment details
